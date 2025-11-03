@@ -5,8 +5,10 @@ class Graph:
 
     def __init__(self):
 
+        # Store the tasks and dependencies
         self.graph = defaultdict(list)
 
+        # Tracks if a task is a dependency for others
         self.in_degree = defaultdict(int)
 
     def add_edge(self, task_a, task_b):
