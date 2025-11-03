@@ -2,6 +2,13 @@ import graph
 
 import trie
 
+from enum import Enum
+
+class TaskStatus(Enum):
+
+    Open = 1
+    Closed = 2
+
 class Task:
 
     def __init__(self, name, description = None, keywords = None, dependencies = None):
@@ -13,6 +20,8 @@ class Task:
         self.keywords = keywords
 
         self.dependencies = dependencies
+
+        self.status = TaskStatus.Open
 
 class TaskManager:
 
