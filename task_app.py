@@ -12,6 +12,11 @@ class TaskManager:
 
     #TODO: Setup the functions that map to user actions
 
+    def list_next_tasks(self):
+        # TODO: List possible next tasks to pickup
+        
+        pass
+
 
 if __name__ == "__main__":
     #TODO: Initialize the task manager to manage the application
