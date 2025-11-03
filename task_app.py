@@ -17,6 +17,12 @@ class TaskManager:
         
         pass
 
+    def find_task_autocomplete(self, keyword_part):
+        # TODO: Use the trie to find keywords that match the user input
+
+        # TODO: List tasks that match the keyword
+
+        pass
 
 if __name__ == "__main__":
     #TODO: Initialize the task manager to manage the application
@@ -25,4 +31,15 @@ if __name__ == "__main__":
 
     #TODO: Add a REPL to allow users to manage tasks
     
+    pass
+
+def tester():
+    # TODO: Generate tasks that are dependent.
+
+    # TODO: Search of tasks based on keyword
+
+    # TODO: Select a task and mark as completed.
+
+    # TODO: Get next task and validate
+
     pass
