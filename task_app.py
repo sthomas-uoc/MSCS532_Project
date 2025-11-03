@@ -2,6 +2,18 @@ import graph
 
 import trie
 
+class Task:
+
+    def __init__(self, name, description = None, keywords = None, dependencies = None):
+
+        self.name = name
+
+        self.description = description
+
+        self.keywords = keywords
+
+        self.dependencies = dependencies
+
 class TaskManager:
 
     def __init__(self):
@@ -11,6 +23,11 @@ class TaskManager:
         self.search_trie = trie.Trie()
 
     #TODO: Setup the functions that map to user actions
+
+    def add_task(self, task, depends_on = None):
+        # TODO: Add task and add dependency if provided
+        
+        pass
 
     def list_next_tasks(self):
         # TODO: List possible next tasks to pickup
@@ -30,6 +47,8 @@ if __name__ == "__main__":
     tm = TaskManager()
 
     #TODO: Add a REPL to allow users to manage tasks
+
+    
     
     pass
 
@@ -41,5 +60,7 @@ def tester():
     # TODO: Select a task and mark as completed.
 
     # TODO: Get next task and validate
+
+    # TODO: Test cyclic dependency - must fail to add task
 
     pass
