@@ -1,5 +1,4 @@
-from collections import defaultdict
-
+from collections import defaultdict, deque
 
 class Graph:
 
@@ -21,6 +20,23 @@ class Graph:
             self.in_degree[task_a] = 0
 
     def sort(self):
-        # TODO return list of tasks to be completed in order
-        pass
+        # Return list of tasks to be completed in order
+
+        process_queue = deque([task for task in self.in_degree if self.in_degree[task] == 0])
+        sorted = []
+        num_tasks = len(self.in_degree)
+
+        while process_queue:
+            task = process_queue.popleft()
+            sorted.append(task)
+            for depends_on in self.graph[task]:
+                self.in_degree[depends_on] -= 1
+                if self.in_degree[depends_on] == 0:
+                    process_queue.append(depends_on)
+
+        # If all task were added to the sorted list, then there is no cycle, else a cycle exists
+        if len(sorted) == num_tasks:
+            return sorted
+        else:
+            return None
         
