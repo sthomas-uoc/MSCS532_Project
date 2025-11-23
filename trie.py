@@ -31,8 +31,37 @@ class Trie:
 
         return node
 
-    def autocomplete(self, prefix):
-        # TODO: Find words in the trie that starts with the prefix
+    # Find the node which matches the prefix
+    def find_prefix_node(self, prefix):
 
-        pass
+        node = self.root
+        for char in prefix:
+            if char not in node.children:
+                return None
+            node = node.children[char]
+
+        return node
+
+    # Find words that are under the prefix
+    def find_words_for_node(self, node, curr_prefix, results):
+        # Node is a word
+        if node.is_word_end:
+            results.append(curr_prefix)
+
+        # Check the rest of the tree to find all words that match the prefix
+        for char, child in node.children.items():
+            self.find_words_for_node(child, curr_prefix + char, results)
+            
+    def autocomplete(self, prefix):
+        # Find words in the trie that starts with the prefix
+
+        node_prefix = self.find_prefix_node(prefix)
+
+        if node_prefix is None:
+            return []
+
+        results = []
+        self.find_words_for_node(node_prefix, prefix, results)
+
+        return results
 
